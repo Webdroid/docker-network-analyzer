@@ -1,4 +1,5 @@
 FROM centos:latest
+MAINTAINER Webdroid
 
 RUN yum -y update && yum -y install epel-release && yum -y install nmap
 
