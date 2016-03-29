@@ -1,7 +1,7 @@
 FROM centos:latest
 
 ENV WAPITI_VERSION 2.3.0
-ENV LANG en
+ENV LANG en_US
 ENV PATH /opt/wapiti/bin:$PATH
 
 RUN yum -y update && yum -y install epel-release && yum -y install wget python-requests python-beautifulsoup openssl && \
