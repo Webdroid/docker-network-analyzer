@@ -1,10 +1,10 @@
 FROM centos:latest
 MAINTAINER Webdroid
 
-RUN yum -y update && yum -y install epel-release && yum -y install nmap
+RUN yum -y update && yum -y install nmap && \
+mkdir /workdir
 
-RUN mkdir /devlab
-VOLUME ["/devlab"]
-WORKDIR /devlab
+VOLUME /workdir
+WORKDIR /workdir
 
 ENTRYPOINT ["nmap"]
