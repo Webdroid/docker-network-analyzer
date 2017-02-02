@@ -13,11 +13,11 @@ RUN yum -y update \
 && tar xfvz nikto-${NIKTO_VERSION}.tar.gz \
 && rm -fr nikto-${NIKTO_VERSION}.tar.gz \
 && cd nikto-${NIKTO_VERSION} \
-&& ln -s /opt/nikto-${NIKTO_VERSION}/nikto.conf /etc/nikto.conf \
+&& ln -sF /opt/nikto-${NIKTO_VERSION} /opt/nikto \
+&& ln -s /opt/nikto/nikto.conf /etc/nikto.conf \
 && sed -i -e "s/UPDATES=yes/UPDATES=auto/g" /etc/nikto.conf \
 && sed -i -e "s/.*PROMPTS=no.*/PROMPTS=no/g" /etc/nikto.conf \
 && sed -i -e "s/.*EXECDIR=.*/EXECDIR=\/opt\/nikto/g" /etc/nikto.conf \
-&& ln -sF /opt/nikto-${NIKTO_VERSION} /opt/nikto \
 && adduser -s /bin/bash nikto \
 && chown -R nikto /workdir \
 && chmod a+x /opt/nikto/nikto.pl \
